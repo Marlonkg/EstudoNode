@@ -1,6 +1,6 @@
 //teste de idade mais antigo que sua vó
 let idade = 10
-let nome = "maria"
+let nome = 'Jão'
 
 if(idade >= 18 && nome == "Jão" || nome == 'Andressa' || nome == 'Maria'){
     console.log('voce pode entrar')
@@ -25,4 +25,20 @@ if(nome == undefined){
     console.log("o nome é muito pequeno, tente outro")
 } else{
     console.log("nome inserido com sucesso")
+}
+
+//uso do switch
+switch (nome) {
+    case 'Jão':
+        console.log('slk jão')
+        break;
+    case 'bruno':
+        console.log('bruno o ze ruela')
+        break
+    case undefined: 
+        console.log('nome indefinido')
+        break
+    default:
+        console.log('nome nao encontrado')
+        break;
 }
