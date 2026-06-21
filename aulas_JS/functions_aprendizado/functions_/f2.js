@@ -1,8 +1,7 @@
 const inquirer = require('inquirer')
 //isso deveria estar em teste pessoal, mas ja instalei a dependencias aqui ent vai aq mesmo 
 
-//melhorando mini calculadora desnecessariamente grande
-// IS COMMING...
+//melhorando mini calculadora nem tão desnecessariamente grande 
 async function calculadora() {
     const pergunta = [
         {
@@ -15,8 +14,7 @@ async function calculadora() {
     try {
 
         const resposta = await inquirer.prompt(pergunta)
-        console.log(resposta)
-        return doisN(resposta)
+        doisN(resposta.op)
     
     } catch (error) {
 
@@ -24,8 +22,7 @@ async function calculadora() {
 }
 }
 
-
-async function doisN() {
+async function doisN(a) {
     const pergunta = [
         {
             type: 'number',
@@ -40,7 +37,18 @@ async function doisN() {
     try {
 
         const resposta = await inquirer.prompt(pergunta)
-        (resposta.n1, resposta.n2)
+        if (a == 'Adição'){
+            mais(resposta.n1, resposta.n2)
+        }
+        if(a == 'Subtração'){
+            menos(resposta.n1, resposta.n2)
+        }
+        if(a == 'Multiplicação'){
+            mult(resposta.n1, resposta.n2)
+        }
+        if(a == 'Divisão'){
+            div(resposta.n1, resposta.n2)
+        }
 
     } catch (error) {
         console.error('ocorreu um erro', error)
@@ -53,14 +61,14 @@ calculadora()
 
 
 function mais(a, b){
-    return a + b
+    return console.log('Resultado:', a + b)
 }
 function menos(a, b){
-    return a - b
+    return console.log('Resultado:', a - b)
 }
 function mult(a, b){
-    return a * b
+    return console.log('Resultado:', a * b)
 }
 function div(a, b){
-    return a / b
+    return console.log('Resultado:', a / b)
 }
