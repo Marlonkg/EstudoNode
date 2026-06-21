@@ -14,6 +14,6 @@ console.log(soma(11, 83))
 
 
 //fazendo funcoes em uma linha: Quando a arrow function possui apenas um paramentro e poucos acões, ela pode ser resumida sem uso de parenteses e return.
-let raizQuadrada = x => x ** 2
+let potencia = x => x ** 2
 
-console.log(raizQuadrada(9))
+console.log(potencia(9))
