@@ -19,7 +19,7 @@ async function calculadora() {
     } catch (error) {
 
         console.error('ocorreu um erro', error)
-}
+    }
 }
 
 async function doisN(a) {
