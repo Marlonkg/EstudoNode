@@ -9,4 +9,4 @@ console.log(soma(12, 15))
 function randomNum(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
-console.log(randomNum(1, 1000))
+console.log(randomNum(1, 10))

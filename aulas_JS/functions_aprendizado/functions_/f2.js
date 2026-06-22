@@ -37,6 +37,7 @@ async function doisN(a) {
     try {
 
         const resposta = await inquirer.prompt(pergunta)
+
         if (a == 'Adição'){
             mais(resposta.n1, resposta.n2)
         }
@@ -57,7 +58,6 @@ async function doisN(a) {
 }
 
 
-calculadora()
 
 
 function mais(a, b){
@@ -72,3 +72,6 @@ function mult(a, b){
 function div(a, b){
     return console.log('Resultado:', a / b)
 }
+
+
+calculadora()
