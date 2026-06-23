@@ -10,15 +10,16 @@ function decrement(a){
 }
 
 
-// essa porcaria ta errada, arrumo depois
+// era algo tao simples...
 function decr(a){
     if(a % 2 != 0){
-        a = a - 1
+        a--
+        return decr(a)
     } else if(a == 0){
         console.log('programa encerado.')
     } else {
         console.log(`${a} é par`)
-        a = a -1
+        a--
         return decr(a)
     }
 }
