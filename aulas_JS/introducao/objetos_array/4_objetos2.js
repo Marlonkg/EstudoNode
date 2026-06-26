@@ -1,7 +1,7 @@
 const pessoa = {
     nome: 'Marlon',
     idade: 24,
-    profissao: 'Garçom'
+    profissao: ['Garçom', 'programador', 'filantropo', 'testando']
 
     }
 console.log(pessoa.nome)
@@ -19,3 +19,7 @@ pessoa.peso = '57kg'
 
 console.log(pessoa.estadoCivil)
 console.log(pessoa)
+
+//então posso criar um array dentro do objeto
+console.log(pessoa.profissao[2])
+console.log(pessoa.profissao)
