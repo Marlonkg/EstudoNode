@@ -36,4 +36,4 @@ console.log(num.slice(3, -2))
 //caso não use paramentro inicial ele menciona os 2 ultimos com -2
 console.log(num.slice(-2))
 
-
+//conclusão geral, negativos como segundo parametro corta o final em aquele numero de paramentros, o positivo define quais elementos serão mencionados, a partir dali... 

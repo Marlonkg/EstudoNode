@@ -5,3 +5,7 @@ console.log(num.indexOf(3))
 
 // mostra em qual indice o ultimo elemento com esse dado se em encontra
 console.log(num.lastIndexOf(3))
+
+//verificar se o elemento existe dentro do array (true ou false)
+console.log(num.includes(9))
+console.log(num.includes(3))
