@@ -10,12 +10,12 @@ function Pessoa(nome, idade, rg){
 Pessoa.prototype.somar = function (a,b) {
     return a + b
 }
-Pessoa.prototype.reclamar = () =>{
+Pessoa.prototype.reclamar = function () {
     console.log('ain, uso das IAs vai acabar com a carreira de programador...')
 }
-Pessoa.prototype.perguntaIdiota = () =>{
+Pessoa.prototype.perguntaIdiota = function (){
     console.log('1 + 1 é 2 ou 3')
-    console.log(Pessoa.prototype.somar(1, 1))
+    console.log(this.somar(1, 1))
 }
 
 
