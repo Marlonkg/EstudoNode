@@ -1,30 +1,63 @@
-class Loja{
-    constructor(camisa, calca, bermuda, bone){
-        this.camisa = camisa
-        this.calca = calca
-        this.bermuda = bermuda
-        this.bone = bone
-    }
-    carrinho(itens){
+//copiando codigo do professor para estudar
+class Carrinho{
+    constructor(itens, qtd, valorTotal){
         this.itens = itens
-        let noCarinho = []
-        noCarinho += this.itens
-        return console.log(noCarinho)
+        this.qtd = qtd
+        this.valorTotal = valorTotal   
     }
-    add (item){
-        this.item = item
-        if(this.item = this.camisa){
-            return this.carrinho(this.camisa)
-        }
-    }
-    remove(){
+    addItem(item){
+        //me pareceu gambiarra, o contador muda de valor caso o if dentro do loop seja verdadeiro, caso for falso, continua 0 e pula o segundo if.
+        let contador = 0
 
+        // A variavel item carrinho percorre todo o array de itens e combina ids do item adicionado agr e aqueles que ja estão no carrinho, caso já exista, ele altera o campo do item adicionando mais itens conforme a qtd indicada.
+        for(let itemCarrinho in this.itens){
+            if(this.itens[itemCarrinho].id == item.id){
+                this.itens[itemCarrinho].qtd += item.qtd
+                contador = 1
+            }
+        }
+
+        //gambiarra
+        if(contador == 0){
+            //push para adicionar o item no carrinho
+            this.itens.push(item)
+        }
+
+        // Aumenta o segundo parametro que a classe exige, o QTD
+        this.qtd += item.qtd
+
+        //Operação basica para conseguir o preço total a partir de agora, preçoDoItem X qtd e soma ao valor total...
+        this.valorTotal += item.preco * item.qtd
+    }
+    removeItem(item){
+        for(let itemCarrinho in this.itens){
+            if(this.itens[itemCarrinho].id == item.id){
+                //PAREI AQUI
+                let obj = this.itens[itemCarrinho]
+                let index = this.itens.findIndex(function(obj){return obj.id == item.id})
+            }
+        }
+        this.qtd -= item.qtd
+        this.valorTotal -= item.preco * item.qtd
     }
 }
-let meusItens = new Loja(40, 70, 30, 20)
-meusItens.add('camisa')
-meusItens.add('calça')
-meusItens.add('bermuda')
 
-// ta dificil essa bagaça, não tenho conhecimento o suficiente não!
+let carrinho = new Carrinho([
+    {
+        id: 1,
+        nome: "camisa",
+        qtd: 1,
+        preco: 20
+    },
+    {
+        id: 2,
+        nome: "calca",
+        qtd: 2,
+        preco: 50
+    },
+    
+], 3, 120) 
+console.log(carrinho)
 
+carrinho.addItem({id: 3, nome: "bermuda", qtd: 3, preco: 18})
+console.log(carrinho)
