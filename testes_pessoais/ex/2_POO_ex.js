@@ -29,16 +29,22 @@ class Carrinho{
         //Operação basica para conseguir o preço total a partir de agora, preçoDoItem X qtd e soma ao valor total...
         this.valorTotal += item.preco * item.qtd
     }
+
+    // não entendi essa função inteira
     removeItem(item){
         for(let itemCarrinho in this.itens){
             if(this.itens[itemCarrinho].id == item.id){
-                //PAREI AQUI
+                
                 let obj = this.itens[itemCarrinho]
                 let index = this.itens.findIndex(function(obj){return obj.id == item.id})
+
+                this.qtd -= this.itens[itemCarrinho].qtd
+                this.valorTotal -= this.itens[itemCarrinho].preco * this.itens[itemCarrinho].qtd
+
+                this.itens.splice(index, 1)
             }
         }
-        this.qtd -= item.qtd
-        this.valorTotal -= item.preco * item.qtd
+
     }
 }
 
@@ -57,7 +63,10 @@ let carrinho = new Carrinho([
     },
     
 ], 3, 120) 
-console.log(carrinho)
 
 carrinho.addItem({id: 3, nome: "bermuda", qtd: 3, preco: 18})
 console.log(carrinho)
+
+carrinho.removeItem({id: 2, nome: "calca", qtd: 1, preco: 50})
+console.log(carrinho)
+
