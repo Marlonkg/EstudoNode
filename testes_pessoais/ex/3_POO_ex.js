@@ -27,3 +27,4 @@ maria.novoBairro = 'Bairro do Lixão'
 maria.novaRua = 'Beco sem saida'
 
 console.log(maria)
+//não estudei, confesso.
