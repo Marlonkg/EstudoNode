@@ -26,8 +26,8 @@ class Carro {
     abastecerCarro(quanto){
         //limitando a gasolina pela capacidade maxima
         if((this.gasolinaAtual + quanto) > 100){
-             this.gasolinaAtual = 100
-
+            this.gasolinaAtual = 100
+            console.log("O tanque está cheio")
         }else {
             this.gasolinaAtual += quanto
         }
@@ -41,8 +41,10 @@ console.log(meuCarro)
 // diminuindo a gasolina
 meuCarro.dirigirCarro()
 meuCarro.dirigirCarro()
+ 
 console.log(meuCarro.gasolinaAtual)
-meuCarro.abastecerCarro(95)
+meuCarro.abastecerCarro(50)
+meuCarro.abastecerCarro(50)
 console.log(meuCarro)
 
 
