@@ -17,6 +17,7 @@ class Conta{
         if(quantia < 1){
             return console.log("quantia invalida ou inexistente")
         }
+        //consertar essa porcaria aq
         if(conta == 'corrente'){
             if(quantia > this.saldoC){
                 let total = this.saldoP -= quantia
