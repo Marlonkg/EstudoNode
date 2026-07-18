@@ -1,10 +1,11 @@
 //sistema de poupança automatica, todo deposito irá direto para poupança, vai precisar ser transferido para corrente para ser usado.
 class Conta{
-    constructor(saldoC, saldoP, jurosP){
+    constructor(saldoC, saldoP, jurosPorMes){
         this.saldoC = saldoC
         this.saldoP = saldoP
         // 1,4% ao mês
-        this.jurosP = jurosP
+        //corrigir utilização do parametro juros.
+        this.jurosP = jurosPorMes
     }
 
     //deposito direto na poupança
@@ -40,3 +41,5 @@ class Conta{
         console.log(total)
     }
 }
+
+let jao = new Conta(1000, 2000, 1.4)
