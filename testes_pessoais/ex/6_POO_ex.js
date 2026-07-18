@@ -6,6 +6,8 @@ class Conta{
         // 1,4% ao mês
         this.jurosP = jurosP
     }
+
+    //deposito direto na poupança
     deposito(quantia){
         if(quantia < 1){
             return console.log("quantia invalida ou inexistente")
@@ -13,18 +15,15 @@ class Conta{
         let total = this.saldoP += quantia
         console.log(`Você depositou ${quantia}, seu saldo atual é ${total}`)
     }
+
     saque(conta = 'poupanca', quantia){
         if(quantia < 1){
             return console.log("quantia invalida ou inexistente")
         }
-        //consertar essa porcaria aq
         if(conta == 'corrente'){
             if(quantia > this.saldoC){
-                let total = this.saldoP -= quantia
-                console.log(`Sua conta corrente não tem saldo o suficiente, sacando da conta poupança...`)
-                console.log(`Você sacou ${quantia}, seu saldo atual é ${total}`)
-            } else{
-                if(quantia > this.saldoP){
+                console.log('sem saldo suficiente na conta corrente, usando a poupança...')
+                if(quantia < this.saldoP){
                     let total = this.saldoP -= quantia
                     console.log(`Você sacou ${quantia}, seu saldo atual é ${total}`)
                 }else {
@@ -32,5 +31,12 @@ class Conta{
                 }
             }
         }
+    }
+    simulacaoJ(meses){
+        this.jurosP = 0.014
+        let lucro = (this.saldoP * this.jurosP) * meses
+        console.log(lucro)
+        let total = this.saldoP + lucro
+        console.log(total)
     }
 }
