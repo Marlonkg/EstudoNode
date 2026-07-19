@@ -4,8 +4,7 @@ class Conta{
         this.saldoC = saldoC
         this.saldoP = saldoP
         // 1,4% ao mês
-        //corrigir utilização do parametro juros.
-        this.jurosP = jurosPorMes
+        this.jurosP = (jurosPorMes / 100).toFixed(3)
     }
 
     //deposito direto na poupança
@@ -14,10 +13,10 @@ class Conta{
             return console.log("quantia invalida ou inexistente")
         }
         let total = this.saldoP += quantia
-        console.log(`Você depositou ${quantia}, seu saldo atual é ${total}`)
+        console.log(`Você depositou R$:${quantia.toFixed(2)}, seu saldo atual é R$:${total.toFixed(2)}`)
     }
 
-    saque(conta = 'poupanca', quantia){
+    saque(quantia, conta = 'poupanca'){
         if(quantia < 1){
             return console.log("quantia invalida ou inexistente")
         }
@@ -26,7 +25,7 @@ class Conta{
                 console.log('sem saldo suficiente na conta corrente, usando a poupança...')
                 if(quantia < this.saldoP){
                     let total = this.saldoP -= quantia
-                    console.log(`Você sacou ${quantia}, seu saldo atual é ${total}`)
+                    console.log(`Você sacou R$:${quantia.toFixed(2)}, seu saldo atual é R$:${total.toFixed(2)}.`)
                 }else {
                     console.log('Sem saldo suficiente na poupança.')
                 }
@@ -34,12 +33,38 @@ class Conta{
         }
     }
     simulacaoJ(meses){
-        this.jurosP = 0.014
         let lucro = (this.saldoP * this.jurosP) * meses
-        console.log(lucro)
+        console.log(`com ${meses} mes(es) de rendimento, você lucraria R$:${lucro.toFixed(2)}.`)
         let total = this.saldoP + lucro
-        console.log(total)
+        console.log(`E teria um total de R$:${total.toFixed(2)}.`)
+    }
+
+    transferCtoP(valor){
+        if(valor > this.saldoC || valor < 1){
+            return console.log('Erro ao transferir! Valor invalido.')
+        } else{
+            this.saldoP += valor
+            this.saldoC -= valor
+        }
+    }
+    transferPtoC(valor){
+        if(valor > this.saldoP || valor < 1){
+            return console.log('Erro ao transferir! Valor invalido.')
+        } else{
+            this.saldoC += valor
+            this.saldoP -= valor
+        }
     }
 }
 
 let jao = new Conta(1000, 2000, 1.4)
+jao.deposito(1500)
+jao.simulacaoJ(2)
+console.log(jao)
+jao.transferCtoP(1000)
+console.log(jao)
+jao.transferPtoC(2500)
+console.log(jao)
+jao.saque(50, 'corrente')
+console.log(jao)
+
