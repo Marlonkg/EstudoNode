@@ -23,16 +23,24 @@ class Conta{
         if(conta == 'corrente'){
             if(quantia > this.saldoC){
                 console.log('sem saldo suficiente na conta corrente, usando a poupança...')
-                if(quantia < this.saldoP){
-                    let total = this.saldoP -= quantia
-                    console.log(`Você sacou R$:${quantia.toFixed(2)}, seu saldo atual é R$:${total.toFixed(2)}.`)
-                }else {
-                    console.log('Sem saldo suficiente na poupança.')
-                }
+            } else{
+                this.saldoC -= quantia
+                console.log(`Você sacou R$:${quantia.toFixed(2)}, seu saldo atual é R$:${this.saldoC.toFixed(2)}.`)
             }
+        }
+        if(conta == 'poupanca'){
+                if(quantia > this.saldoP){
+                    console.log('Sem saldo suficiente na poupança.')     
+                }else {
+                    this.saldoP -= quantia
+                    console.log(`Você sacou R$:${quantia.toFixed(2)}, seu saldo atual é R$:${this.saldoP.toFixed(2)}.`)   
+                }
         }
     }
     simulacaoJ(meses){
+        if(meses < 1){
+            return console.log('seu imbecil, não pode simular negativo.')
+        }
         let lucro = (this.saldoP * this.jurosP) * meses
         console.log(`com ${meses} mes(es) de rendimento, você lucraria R$:${lucro.toFixed(2)}.`)
         let total = this.saldoP + lucro
@@ -64,7 +72,11 @@ console.log(jao)
 jao.transferCtoP(1000)
 console.log(jao)
 jao.transferPtoC(2500)
+jao.transferCtoP(2400)
 console.log(jao)
 jao.saque(50, 'corrente')
+jao.saque(50, 'poupanca')
+console.log(jao)
+jao.simulacaoJ(5)
 console.log(jao)
 
