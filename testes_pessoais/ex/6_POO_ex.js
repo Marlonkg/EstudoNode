@@ -65,7 +65,14 @@ class Conta{
     }
 }
 
-let jao = new Conta(1000, 2000, 1.4)
+class ContaSpecial extends Conta{
+    constructor(saldoC, saldoP, jurosPorMes){
+        //regra que não foi ensinada, só pode um super...
+        super(saldoC, saldoP, jurosPorMes * 2)
+    }
+}
+
+let jao = new ContaSpecial(1000, 2000, 1.4)
 jao.deposito(1500)
 jao.simulacaoJ(2)
 console.log(jao)
